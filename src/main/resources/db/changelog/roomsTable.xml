@@ -14,9 +14,6 @@
             <column name="price" type="int">
                 <constraints nullable="false"/>
             </column>
-            <column name="comfort_level" type="int" remarks="Уровень комфорта в звёздах">
-                <constraints nullable="false"/>
-            </column>
             <column name="is_enabled" type="boolean" defaultValueBoolean="true">
                 <constraints nullable="false"/>
             </column>
@@ -26,7 +23,36 @@
             <column name="floor" type="int">
                 <constraints nullable="false"/>
             </column>
+            <column name="hotel_id" type="Bigint">
+                <constraints nullable="false"/>
+            </column>
         </createTable>
+        <addForeignKeyConstraint baseTableName="rooms"
+                                 baseColumnNames="hotel_id"
+                                 constraintName="fk_rooms_hotels"
+                                 onDelete="CASCADE"
+                                 onUpdate="RESTRICT"
+                                 referencedTableName="hotels"
+                                 referencedColumnNames="id"/>
     </changeSet>
-
+    <changeSet id="00.24.14.05.2024" author="Yunir">
+        <insert tableName="rooms">
+            <column name="person_count" value="2"/>
+            <column name="price" value="1000"/>
+            <column name="floor" value="1"/>
+            <column name="hotel_id" value="1"/>
+        </insert>
+        <insert tableName="rooms">
+            <column name="person_count" value="1"/>
+            <column name="price" value="800"/>
+            <column name="floor" value="1"/>
+            <column name="hotel_id" value="2"/>
+        </insert>
+        <insert tableName="rooms">
+            <column name="person_count" value="3"/>
+            <column name="price" value="1200"/>
+            <column name="floor" value="1"/>
+            <column name="hotel_id" value="1"/>
+        </insert>
+    </changeSet>
 </databaseChangeLog>

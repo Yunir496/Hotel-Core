@@ -1,0 +1,31 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <changeSet id="00.05.14.04.2024" author="Yunir">
+        <createTable tableName="hotels">
+            <column name="id" type="Bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="comfort_level" type="int" remarks="Уровень комфорта в звёздах">
+                <constraints nullable="false"/>
+            </column>
+            <column name="address" type="varchar(460)" >
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <insert tableName="hotels">
+            <column name="comfort_level" value="3"/>
+            <column name="name" value="Dubai"/>
+            <column name="address" value="Emirates"/>
+        </insert>
+        <insert tableName="hotels">
+            <column name="comfort_level" value="5"/>
+            <column name="name" value="Antalya"/>
+            <column name="address" value="Turkish"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
