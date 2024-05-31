@@ -16,6 +16,9 @@
             <column name="address" type="varchar(460)" >
                 <constraints nullable="false"/>
             </column>
+            <column name="delete_date" type="date">
+                <constraints nullable="true"/>
+            </column>
         </createTable>
         <insert tableName="hotels">
             <column name="comfort_level" value="3"/>
