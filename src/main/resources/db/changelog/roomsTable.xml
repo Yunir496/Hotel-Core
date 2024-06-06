@@ -11,7 +11,7 @@
             <column name="person_count" type="int">
                 <constraints nullable="false"/>
             </column>
-            <column name="price" type="int">
+            <column name="price" type="double">
                 <constraints nullable="false"/>
             </column>
             <column name="is_enabled" type="boolean" defaultValueBoolean="true">

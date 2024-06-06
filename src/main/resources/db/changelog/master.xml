@@ -4,6 +4,6 @@
                         https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
     <include file="hotelsTable.xml" relativeToChangelogFile="true"/>
     <include file="roomsTable.xml" relativeToChangelogFile="true"/>
-
+    <include file="bookingsTable.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>
