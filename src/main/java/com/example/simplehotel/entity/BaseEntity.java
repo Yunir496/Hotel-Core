@@ -9,7 +9,7 @@ import java.time.LocalDate;
 
 @Data
 @MappedSuperclass
-@Where(clause="delete_date is null")
+//@Where(clause="delete_date is null")
 public abstract class BaseEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id

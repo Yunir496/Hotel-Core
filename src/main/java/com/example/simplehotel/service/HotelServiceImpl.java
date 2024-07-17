@@ -8,6 +8,7 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
 @Service
@@ -17,6 +18,11 @@ public class HotelServiceImpl implements HotelService{
 
     public HotelServiceImpl(HotelRepository hotelRepository) {
         this.hotelRepository = hotelRepository;
+    }
+    @Transactional
+    @Override
+    public Hotel getById(Long Id) {
+        return hotelRepository.findById(Id).orElseThrow(()->new EntityNotFoundException("Нет отеля с Id "+ Id));
     }
 
     @Override

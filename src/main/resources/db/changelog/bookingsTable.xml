@@ -31,4 +31,7 @@
           </column>
       </createTable>
     </changeSet>
+    <changeSet id="22.16.17.07.2024" author="Yunir" context="all" runOnChange="true">
+        <sqlFile path="/sql/validate_booking_date.sql" splitStatements="false"/>
+    </changeSet>
 </databaseChangeLog>
