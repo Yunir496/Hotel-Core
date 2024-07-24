@@ -9,8 +9,8 @@ public class SimpleHotelApplication {
     public static void main(String[] args) {
         SpringApplication.run(SimpleHotelApplication.class, args);
     }
-    //доработать репозитории и методы ?
-    // добавить сервис брони и дописать методы
+
+
     //создать таблицу пользователей  сам
     //дописать контроллеры и разграничить логику прав
     //создать классы обертки дто

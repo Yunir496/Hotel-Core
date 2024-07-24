@@ -5,6 +5,9 @@ import com.example.simplehotel.dto.BookingDto;
 import com.example.simplehotel.entity.Booking;
 import com.example.simplehotel.entity.Hotel;
 import com.example.simplehotel.entity.Room;
+import com.example.simplehotel.util.BookingStatus;
+import liquibase.repackaged.org.apache.commons.lang3.StringUtils;
+import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -60,8 +63,16 @@ public class BookingServiceImpl implements BookingService {
 
     @Transactional
     @Override
-    public List<Booking> getAll() {
-        return bookingRepository.findAll();
+    public List<Booking> getAll(String status) {
+
+        if(status.equalsIgnoreCase(BookingStatus.ACTUAL.getValue())){
+            return bookingRepository.findAll();
+        }
+        else if(status.equalsIgnoreCase(BookingStatus.DELETED.getValue())){
+            return bookingRepository.getAllDeleted();
+        }else{
+            return bookingRepository.getAll();
+        }
     }
 
     @Transactional
@@ -81,4 +92,6 @@ public class BookingServiceImpl implements BookingService {
     public void delete(Long id) {
         bookingRepository.deleteBooking(id);
     }
+
+
 }

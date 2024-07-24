@@ -3,10 +3,11 @@ package com.example.simplehotel.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-
+@Where(clause = "delete_date is null")
 @Data
 @Entity
 @NoArgsConstructor

@@ -1,6 +1,7 @@
 package com.example.simplehotel.dao;
 
 import com.example.simplehotel.entity.Booking;
+import com.example.simplehotel.entity.Room;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -18,6 +19,11 @@ public interface BookingRepository extends JpaRepository<Booking,Long> {
      @Query(value = "call validate_booking_date(:room_id,:start_date,:end_date)",nativeQuery = true)
      int validate (@Param("room_id") Long roomId, @Param("start_date") LocalDate startDate, @Param("end_date") LocalDate endDate);
 
+     @Query(value = "select * from bookings", nativeQuery = true)
+     List<Booking> getAll();
+
+     @Query(value = "select * from bookings where delete_date is not null ", nativeQuery = true)
+     List<Booking> getAllDeleted();
 
 
 }
